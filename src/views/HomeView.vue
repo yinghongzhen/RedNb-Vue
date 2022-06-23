@@ -6,6 +6,10 @@
 
 <script lang="ts" setup>
     import NbTabs from '@/components/NbTabs/index.vue'
+    import { sum , a } from '@/types/math'
+
+    console.log(sum(1, 211))
+    console.log(a)
 </script>
 
 <style type="text/less">
