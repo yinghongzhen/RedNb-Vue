@@ -1,14 +1,18 @@
 <template>
     <div class="nb-admin-wrap">
-        <component :is="'nb-layout-column'" />
+        <component :is="'NbLayoutColumn'" />
         <!-- <NbLayoutColumn></NbLayoutColumn> -->
     </div>
 </template>
 
 <script lang="ts" setup>
-import NbLayoutColumn from './NbLayoutColumn/index.vue'
+import { ref } from 'vue'
+// import NbLayoutColumn from './NbLayoutColumn/index.vue'
+
+// let zj = ref(NbLayoutColumn)
 
 const imports = require.context('./', true, /\.vue$/)
+
 const components: any = {}
 
 imports
@@ -17,8 +21,6 @@ imports
     .forEach((key) => {
         components[key.replace(/(\/|\.|index.vue)/g, '')] = imports(key).default
     })
-
-    console.log(components)
 
 </script>
 
