@@ -1,6 +1,6 @@
 <template>
-  <div class="nb-layout-column">
-   3列框架布局
+  <div class="nb-layout-common">
+   普通默认布局
   </div>
 </template>
 
