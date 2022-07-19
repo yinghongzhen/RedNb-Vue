@@ -1,7 +1,8 @@
 <template>
     <div class="nb-admin-wrap">
         <div class="change">
-            <button @click="onClick" type="primary">切换模板</button>
+            <a-button @click="onClick" type="primary">切换模板</a-button>
+            <el-button @click="onClick" type="primary">切换模板</el-button>
         </div>
         <component :is="template" />
     </div>
@@ -9,6 +10,8 @@
 
 <script lang="ts" setup>
 import { ref, shallowRef } from 'vue'
+import { useSettingStore } from '@/store/modules/setting'
+
 // import NbLayoutColumn from './NbLayoutColumn/index.vue'
 // import NbLayoutCommon from './NbLayoutCommon/index.vue'
 
@@ -25,13 +28,13 @@ imports
 
 console.log(components)
 
-let template = shallowRef(components.NbLayoutColumn)
+let template = shallowRef(components['NbLayoutColumn'])
 
-const onClick = ()=> {
-    if(template.value == components.NbLayoutColumn) {
-      template.value = components.NbLayoutCommon
-    }else {
-      template.value = components.NbLayoutColumn
+const onClick = () => {
+    if (template.value == components['NbLayoutColumn']) {
+        template.value = components['NbLayoutCommon']
+    } else {
+        template.value = components['NbLayoutColumn']
     }
 }
 
